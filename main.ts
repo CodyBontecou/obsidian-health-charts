@@ -3,22 +3,33 @@ import { HealthDataParser } from './src/parser';
 import { HealthChartRenderer } from './src/renderer';
 
 export default class HealthChartsPlugin extends Plugin {
+	private processedFiles: Set<string> = new Set();
+
 	async onload() {
 		console.log('Loading Health Charts Plugin');
-
-		// Register markdown post processor to detect health data
-		this.registerMarkdownPostProcessor((element, context) => {
-			this.processHealthData(element, context);
-		});
 
 		// Register code block processor for explicit chart rendering
 		this.registerMarkdownCodeBlockProcessor('health-chart', (source, el, ctx) => {
 			this.renderHealthChart(source, el, ctx);
 		});
+
+		// Use a more targeted approach - look for frontmatter section
+		this.registerMarkdownPostProcessor((element, context) => {
+			// Only process once per file
+			const cacheKey = `${context.sourcePath}-${element.className}`;
+
+			// Look for the frontmatter indicator that this is a health data file
+			const hasFrontmatter = element.querySelector('div.frontmatter') ||
+								   element.textContent?.includes('type: health-data');
+
+			if (hasFrontmatter && !this.processedFiles.has(cacheKey)) {
+				this.processedFiles.add(cacheKey);
+				this.processHealthData(element, context);
+			}
+		});
 	}
 
 	private processHealthData(element: HTMLElement, context: MarkdownPostProcessorContext) {
-		// Check if this markdown file contains health data
 		const file = this.app.vault.getAbstractFileByPath(context.sourcePath);
 		if (!file) return;
 
@@ -27,10 +38,19 @@ export default class HealthChartsPlugin extends Plugin {
 			const healthData = parser.parseMarkdown(content);
 
 			if (healthData) {
-				// Found health data - render charts
-				const renderer = new HealthChartRenderer(element);
+				// Insert charts at the top of the document
+				const container = createDiv({ cls: 'health-charts-container' });
+				const renderer = new HealthChartRenderer(container);
 				renderer.render(healthData);
+
+				// Find the best insertion point
+				const parent = element.parentElement;
+				if (parent) {
+					parent.insertBefore(container, parent.firstChild);
+				}
 			}
+		}).catch(error => {
+			console.error('Health Charts: Error reading file', error);
 		});
 	}
 
