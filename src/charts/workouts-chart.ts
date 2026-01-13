@@ -3,26 +3,26 @@ import { WorkoutData } from '../types';
 export class WorkoutsChart {
 	private container: HTMLElement;
 
-	// Workout type to emoji mapping (Apple Fitness style)
+	// Workout type to minimal icon mapping (Teenage Engineering style)
 	private readonly WORKOUT_ICONS: { [key: string]: string } = {
-		'Running': '🏃',
-		'Walking': '🚶',
-		'Cycling': '🚴',
-		'Swimming': '🏊',
-		'Yoga': '🧘',
-		'HIIT': '💪',
-		'Strength': '🏋️',
-		'Dance': '💃',
-		'Hiking': '🥾',
-		'Rowing': '🚣',
-		'Elliptical': '⚡',
-		'Stair Climbing': '🪜',
-		'Tennis': '🎾',
-		'Basketball': '🏀',
-		'Soccer': '⚽',
-		'Golf': '⛳',
-		'Boxing': '🥊',
-		'Martial Arts': '🥋'
+		'Running': '▸',
+		'Walking': '·',
+		'Cycling': '○',
+		'Swimming': '~',
+		'Yoga': '◇',
+		'HIIT': '▲',
+		'Strength': '◼',
+		'Dance': '♪',
+		'Hiking': '△',
+		'Rowing': '≈',
+		'Elliptical': '◯',
+		'Stair Climbing': '▴',
+		'Tennis': '●',
+		'Basketball': '●',
+		'Soccer': '●',
+		'Golf': '○',
+		'Boxing': '■',
+		'Martial Arts': '◆'
 	};
 
 	constructor(container: HTMLElement) {
@@ -36,7 +36,7 @@ export class WorkoutsChart {
 			const workoutCard = workoutsContainer.createDiv({ cls: 'workout-card' });
 
 			// Get icon for workout type
-			const icon = this.WORKOUT_ICONS[workout.type] || '🏃';
+			const icon = this.WORKOUT_ICONS[workout.type] || '▸';
 
 			// Workout header
 			const header = workoutCard.createDiv({ cls: 'workout-header' });
@@ -96,22 +96,7 @@ export class WorkoutsChart {
 	}
 
 	private getWorkoutColor(type: string): string {
-		// Assign colors based on workout type
-		const colorMap: { [key: string]: string } = {
-			'Running': '#FF6B6B',
-			'Walking': '#4ECDC4',
-			'Cycling': '#45B7D1',
-			'Swimming': '#00A8E8',
-			'Yoga': '#A78AFA',
-			'HIIT': '#FF006E',
-			'Strength': '#FB5607',
-			'Dance': '#FF006E',
-			'Hiking': '#06A77D',
-			'Rowing': '#3A86FF',
-			'Elliptical': '#8338EC',
-			'default': '#6366F1'
-		};
-
-		return colorMap[type] || colorMap['default'];
+		// Single accent color for all workouts
+		return '#a78bfa';
 	}
 }

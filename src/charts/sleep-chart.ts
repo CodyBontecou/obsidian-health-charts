@@ -17,11 +17,11 @@ export class SleepChart {
 			`;
 		}
 
-		// Sleep stages breakdown
+		// Sleep stages breakdown - Single accent color
 		const stages = [
-			{ label: 'Deep', value: data.deepSleepFormatted, color: '#A78AFA', icon: '🌙' },
-			{ label: 'REM', value: data.remSleepFormatted, color: '#60A5FA', icon: '💭' },
-			{ label: 'Core', value: data.coreSleepFormatted, color: '#818CF8', icon: '😴' }
+			{ label: 'Deep', value: data.deepSleepFormatted, color: '#a78bfa', icon: '▓' },
+			{ label: 'REM', value: data.remSleepFormatted, color: '#a78bfa', icon: '▒' },
+			{ label: 'Core', value: data.coreSleepFormatted, color: '#a78bfa', icon: '░' }
 		];
 
 		const stagesContainer = this.container.createDiv({ cls: 'sleep-stages' });
@@ -49,9 +49,9 @@ export class SleepChart {
 			const corePercent = (data.coreSleep / data.totalDuration) * 100;
 
 			bar.innerHTML = `
-				<div class="sleep-bar-segment" style="width: ${deepPercent}%; background: linear-gradient(135deg, #A78AFA, #9333EA);"></div>
-				<div class="sleep-bar-segment" style="width: ${remPercent}%; background: linear-gradient(135deg, #60A5FA, #3B82F6);"></div>
-				<div class="sleep-bar-segment" style="width: ${corePercent}%; background: linear-gradient(135deg, #818CF8, #6366F1);"></div>
+				<div class="sleep-bar-segment" style="width: ${deepPercent}%; background: #a78bfa; opacity: 1;"></div>
+				<div class="sleep-bar-segment" style="width: ${remPercent}%; background: #a78bfa; opacity: 0.7;"></div>
+				<div class="sleep-bar-segment" style="width: ${corePercent}%; background: #a78bfa; opacity: 0.4;"></div>
 			`;
 		}
 	}

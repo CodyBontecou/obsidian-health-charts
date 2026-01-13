@@ -13,32 +13,32 @@ export class VitalsChart {
 				label: 'Resting HR',
 				value: data.restingHeartRate,
 				unit: 'BPM',
-				icon: '❤️',
-				color: '#FF6B9D',
+				icon: '♥',
+				color: '#a78bfa',
 				normal: { min: 60, max: 100 }
 			},
 			{
 				label: 'HRV',
 				value: data.hrv,
 				unit: 'ms',
-				icon: '💓',
-				color: '#FF8FA3',
+				icon: '~',
+				color: '#a78bfa',
 				normal: { min: 30, max: 100 }
 			},
 			{
 				label: 'Respiratory',
 				value: data.respiratoryRate,
 				unit: '/min',
-				icon: '🫁',
-				color: '#60A5FA',
+				icon: '○',
+				color: '#a78bfa',
 				normal: { min: 12, max: 20 }
 			},
 			{
 				label: 'SpO₂',
 				value: data.bloodOxygenPercent,
 				unit: '%',
-				icon: '🩸',
-				color: '#F472B6',
+				icon: '●',
+				color: '#a78bfa',
 				normal: { min: 95, max: 100 }
 			}
 		];

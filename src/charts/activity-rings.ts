@@ -36,11 +36,11 @@ export class ActivityRingsChart {
 		const center = size / 2;
 		const svg = this.createSVG(size);
 
-		// Draw rings (from outer to inner: Move, Exercise, Stand)
+		// Draw rings (from outer to inner: Move, Exercise, Stand) - monochromatic
 		const rings = [
-			{ percent: movePercent, color: '#FF006E', label: 'Move', value: data.activeCalories || 0, goal: goals.calories, unit: 'CAL', radius: 110 },
-			{ percent: exercisePercent, color: '#00F5D4', label: 'Exercise', value: data.exerciseMinutes || 0, goal: goals.exercise, unit: 'MIN', radius: 85 },
-			{ percent: standPercent, color: '#3A86FF', label: 'Stand', value: data.steps || 0, goal: goals.steps, unit: 'STEPS', radius: 60 }
+			{ percent: movePercent, color: '#a78bfa', label: 'Move', value: data.activeCalories || 0, goal: goals.calories, unit: 'CAL', radius: 110 },
+			{ percent: exercisePercent, color: '#a78bfa', label: 'Exercise', value: data.exerciseMinutes || 0, goal: goals.exercise, unit: 'MIN', radius: 85 },
+			{ percent: standPercent, color: '#a78bfa', label: 'Stand', value: data.steps || 0, goal: goals.steps, unit: 'STEPS', radius: 60 }
 		];
 
 		rings.forEach(ring => {

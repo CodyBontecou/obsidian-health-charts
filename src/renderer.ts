@@ -38,7 +38,7 @@ export class HealthChartRenderer {
 
 		// Sleep card
 		if (data.sleep) {
-			const sleepCard = new StatsCard(statsGrid, 'Sleep', '😴', '#A78AFA');
+			const sleepCard = new StatsCard(statsGrid, 'Sleep', '▓', '#a78bfa');
 			sleepCard.render();
 			const sleepChart = new SleepChart(sleepCard.getContent());
 			sleepChart.render(data.sleep);
@@ -46,7 +46,7 @@ export class HealthChartRenderer {
 
 		// Vitals card
 		if (data.vitals) {
-			const vitalsCard = new StatsCard(statsGrid, 'Vitals', '❤️', '#FF6B9D');
+			const vitalsCard = new StatsCard(statsGrid, 'Vitals', '♥', '#a78bfa');
 			vitalsCard.render();
 			const vitalsChart = new VitalsChart(vitalsCard.getContent());
 			vitalsChart.render(data.vitals);
@@ -54,7 +54,7 @@ export class HealthChartRenderer {
 
 		// Body metrics card
 		if (data.body) {
-			const bodyCard = new StatsCard(statsGrid, 'Body', '⚖️', '#34D399');
+			const bodyCard = new StatsCard(statsGrid, 'Body', '●', '#a78bfa');
 			bodyCard.render();
 			const content = bodyCard.getContent();
 
