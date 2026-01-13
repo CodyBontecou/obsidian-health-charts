@@ -45,9 +45,9 @@ export class ActivityRingsChart {
 
 		rings.forEach(ring => {
 			// Background ring
-			this.drawRing(svg, center, ring.radius, 360, ring.color, 0.15);
+			this.drawRing(svg, center, center, ring.radius, 360, ring.color, 0.15);
 			// Progress ring
-			this.drawRing(svg, center, ring.radius, ring.percent * 3.6, ring.color, 1);
+			this.drawRing(svg, center, center, ring.radius, ring.percent * 3.6, ring.color, 1);
 		});
 
 		ringsContainer.appendChild(svg);
