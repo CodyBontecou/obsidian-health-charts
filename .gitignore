@@ -1,0 +1,27 @@
+# Compiled output
+main.js
+*.js.map
+
+# Node modules
+node_modules/
+
+# macOS
+.DS_Store
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Obsidian
+.obsidian/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build artifacts
+dist/
+build/

@@ -1,0 +1,10 @@
+{
+  "id": "health-charts",
+  "name": "Health Charts",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "Beautiful Apple Health-inspired charts for your health data. Renders activity rings, sleep charts, and fitness metrics with elegant visualizations.",
+  "author": "Your Name",
+  "authorUrl": "",
+  "isDesktopOnly": false
+}
