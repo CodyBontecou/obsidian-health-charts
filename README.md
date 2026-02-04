@@ -176,7 +176,7 @@ You can also manually insert specific charts using code blocks:
 
 ## Supported Data Formats
 
-This plugin works with data exported from the [Health to Obsidian App](https://github.com/yourusername/health-exporter):
+This plugin works with data exported from the [Health.md app](https://github.com/CodyBontecou/health-md):
 
 ### Markdown Format
 ```markdown
@@ -295,7 +295,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## Credits
 
 - Inspired by Apple Health and Apple Fitness apps
-- Built for the [Health to Obsidian App](https://github.com/yourusername/health-exporter)
+- Built for the [Health.md app](https://github.com/CodyBontecou/health-md)
 - Icon designs inspired by SF Symbols
 
 ## License

@@ -1,6 +1,6 @@
 # Installing Health Charts Plugin on iOS
 
-This guide will help you install the Obsidian Health Charts plugin on your iPhone or iPad.
+This guide will help you install the Health Charts plugin on your iPhone or iPad.
 
 ## Prerequisites
 
